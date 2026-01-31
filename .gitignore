@@ -1,0 +1,8 @@
+.DS_Store
+
+# Build artifacts
+astra-child_0130.zip
+
+# Editor / OS
+.vscode/
+

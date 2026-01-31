@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="ゆめハウスの会社概要、理念、アクセス情報をご紹介します。地域に根ざした信頼のパートナーとして、住まい探しを支えます。">
+    <meta name="theme-color" content="#005694">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script>
+        (function () {
+            try {
+                const stored = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = stored || (prefersDark ? 'dark' : 'light');
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+                document.documentElement.classList.toggle('light', theme !== 'dark');
+            } catch {
+                // ignore
+            }
+        })();
+    </script>
+    <script id="tailwind-config">
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#005694",
+                        "primary-light": "#4FA3D1",
+                        "primary-dark": "#0B2A4A",
+                        "secondary": "#E6F0F7",
+                        "accent": "#F59E0B",
+                        "background-light": "#FFFFFF",
+                        "background-subtle": "#F8FAFC",
+                        "background-dark": "#0B1120",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B",
+                        "text-main": "#334155",
+                        "text-light": "#64748B",
+                        "text-heading": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans JP", "sans-serif"],
+                        "body": ["Noto Sans JP", "sans-serif"],
+                    },
+                    boxShadow: {
+                        "soft": "0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)",
+                        "card": "0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.01)",
+                        "floating": "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01)",
+                        "glow": "0 0 20px rgba(79, 163, 209, 0.3)",
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #005694 0%, #0B2A4A 100%)',
+                        'gradient-surface': 'linear-gradient(to bottom right, #ffffff, #f8fafc)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,line-clamp"></script>
+    <style>
+        @keyframes landIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-land-in {
+            animation: landIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Plus Jakarta Sans', sans-serif;
+            font-feature-settings: "palt";
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.02em;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .drop-shadow-glow {
+            filter: drop-shadow(0 0 16px rgba(79, 163, 209, 0.35));
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            ::before,
+            ::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    <title>会社情報 | ゆめハウス</title>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white transition-colors duration-300">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-xl focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:text-text-heading focus:shadow-floating dark:focus:bg-surface-dark dark:focus:text-white"
+        href="#main">
+        本文へスキップ
+    </a>
+    <!-- Top Accent Line -->
+    <div class="w-full h-3 bg-primary"></div>
+
+    <!-- Navigation -->
+    <header
+        class="sticky top-0 z-50 bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md shadow-soft border-b border-gray-100/50 dark:border-gray-800/50 transition-all duration-300">
+        <div class="max-w-[1280px] mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="size-10 text-primary transition-transform group-hover:scale-110 duration-500 hover:rotate-3">
+                    <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
+                        class="drop-shadow-glow">
+                        <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2
+                    class="text-2xl font-display font-extrabold tracking-tight text-text-heading dark:text-white group-hover:text-primary transition-colors">
+                    ゆめハウス</h2>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="../1._home/code.html"
+                    class="hidden md:flex items-center gap-2 text-xs font-bold text-text-light hover:text-primary transition-colors uppercase tracking-wider group">
+                    <span
+                        class="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">home</span>
+                    Home
+                </a>
+
+                <button
+                    class="w-10 h-10 rounded-full bg-secondary dark:bg-slate-800 text-text-main dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-white/10 hover:text-primary transition-all flex items-center justify-center shadow-soft"
+                    id="theme-toggle" type="button" aria-label="テーマ切り替え" aria-pressed="false"
+                    title="テーマ切り替え">
+                    <span class="material-symbols-outlined text-xl" data-theme-icon>dark_mode</span>
+                </button>
+
+                <a href="../8._contact/code.html"
+                    class="relative overflow-hidden bg-gradient-to-r from-accent to-orange-600 text-white text-sm font-bold h-10 px-6 rounded-full shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2 group">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-lg">mail</span>
+                        お問い合わせ
+                    </span>
+                    <div
+                        class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100/50 dark:border-gray-800/50">
+            <div class="max-w-[1280px] mx-auto">
+                <nav class="flex w-full overflow-x-auto md:overflow-visible scrollbar-hide justify-center gap-1">
+                    <a href="../1._home/code.html"
+                        class="relative group px-5 py-4 text-sm font-bold text-text-main dark:text-gray-300 hover:text-primary transition-colors whitespace-nowrap">
+                        <span class="relative z-10">ホーム</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-t-full"></span>
+                        <span
+                            class="absolute inset-0 bg-primary/5 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 rounded-lg -z-10"></span>
+                    </a>
+                    <a href="../2._property_search/code.html"
+                        class="relative group px-5 py-4 text-sm font-bold text-text-main dark:text-gray-300 hover:text-primary transition-colors whitespace-nowrap">
+                        <span class="relative z-10">物件検索</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-t-full"></span>
+                        <span
+                            class="absolute inset-0 bg-primary/5 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 rounded-lg -z-10"></span>
+                    </a>
+                    <a href="../4._guide_flow/code.html"
+                        class="relative group px-5 py-4 text-sm font-bold text-text-main dark:text-gray-300 hover:text-primary transition-colors whitespace-nowrap">
+                        <span class="relative z-10">案内の流れ</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-t-full"></span>
+                        <span
+                            class="absolute inset-0 bg-primary/5 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 rounded-lg -z-10"></span>
+                    </a>
+                    <a href="../5._our_strengths/code.html"
+                        class="relative group px-5 py-4 text-sm font-bold text-text-main dark:text-gray-300 hover:text-primary transition-colors whitespace-nowrap">
+                        <span class="relative z-10">我々の強み</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-t-full"></span>
+                        <span
+                            class="absolute inset-0 bg-primary/5 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 rounded-lg -z-10"></span>
+                    </a>
+                    <a href="../6._testimonials/code.html"
+                        class="relative group px-5 py-4 text-sm font-bold text-text-main dark:text-gray-300 hover:text-primary transition-colors whitespace-nowrap">
+                        <span class="relative z-10">お客様の声</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-t-full"></span>
+                        <span
+                            class="absolute inset-0 bg-primary/5 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 rounded-lg -z-10"></span>
+                    </a>
+                    <a href="../7._company_info/code.html"
+                        class="relative group px-5 py-4 text-sm font-bold text-text-main dark:text-gray-300 hover:text-primary transition-colors whitespace-nowrap">
+                        <span class="relative z-10">会社情報</span>
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-t-full"></span>
+                        <span
+                            class="absolute inset-0 bg-primary/5 scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 rounded-lg -z-10"></span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main id="main" class="flex flex-col items-center">
+        <!-- Hero Section (Full Width) -->
+        <section class="w-full">
+            <div class="flex min-h-[420px] md:min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-start justify-center px-8 md:px-20 lg:px-40 text-left relative overflow-hidden"
+                data-alt="ゆめハウスヒーロー背景" style='background-image: url("../image2/image7.png");'>
+                <div class="flex flex-col gap-4 max-w-2xl">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[#111318] text-sm font-bold">Company Info</span>
+                        <span class="text-[#111318]/60 text-sm">｜</span>
+                        <span class="text-[#111318]/60 text-sm">会社情報</span>
+                    </div>
+                    <h1
+                        class="text-[#111318] text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] animate-land-in delay-300">
+                        ゆめハウスについて
+                    </h1>
+                    <p
+                        class="text-[#111318]/70 text-base md:text-lg font-normal leading-relaxed animate-land-in delay-500">
+                        ゆめハウスの会社概要・代表メッセージ・<br class="hidden md:block" />アクセス情報をご紹介します。
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Content Container -->
+        <div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1 px-4">
+            <!-- Breadcrumbs -->
+            <div class="flex flex-wrap gap-2 py-4">
+                <a class="text-[#616f89] dark:text-slate-400 text-sm font-medium leading-normal" href="#">ホーム</a>
+                <span class="text-[#616f89] dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+                <span class="text-[#111318] dark:text-white text-sm font-medium leading-normal">会社情報</span>
+            </div>
+            <!-- CEO Message -->
+            <section class="mt-8 px-4">
+                <div
+                    class="flex flex-col gap-6 bg-white dark:bg-slate-900 p-6 rounded-xl border border-[#f0f2f4] dark:border-slate-800 shadow-sm">
+                    <div class="flex flex-col @[520px]:flex-row gap-6">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg min-h-40 w-40 shrink-0"
+                            data-alt="Professional portrait of a Japanese CEO in a suit"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmQuMjBubYQ5ljR7aWqSumaP6h4jVCJVQaBa-YE5QjaVvl8qQ8YA6y1hUielBy56gKBJgQ-IiuOZN-tyKiDBwloFwq0WHnruxeo-Ubpx3rPB3igx8r5lhsWptBxZxARs6H0gcoEZKYZd5cEpllD_ejzjs7smnMFxt-ZQpM9EjCQtHzOx3MnJ6qLVwo73pItQPCHx0CwMf-RidIsWBWrrN2ThBW7QpPHwbGLjRjQIC3ISwINPYNZiSGtGr0G4_kpYlZ7y12GB92FWjP");'>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <h3 class="text-primary text-sm font-bold uppercase tracking-wider mb-2">Message
+                            </h3>
+                            <p
+                                class="text-[#111318] dark:text-white text-[24px] font-bold leading-tight tracking-[-0.015em] mb-1">
+                                代表挨拶</p>
+                            <p class="text-[#616f89] dark:text-slate-400 text-lg font-medium leading-normal">
+                                「安心」と「夢」をカタチにする不動産取引を目指して</p>
+                            <p class="text-[#111318] dark:text-slate-300 text-base font-bold mt-2">代表取締役　夢野 太郎
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-t border-[#f0f2f4] dark:border-slate-800 pt-6">
+                        <p class="text-[#111318] dark:text-slate-300 text-base font-normal leading-relaxed">
+                            私たちゆめハウスは、お客様の人生の大きな転機である不動産売買において、透明性と誠実さを最も大切にしています。社名に込めた「ゆめ」を単なる憧れで終わらせないよう、プロフェッショナルな視点でお手伝いさせていただきます。<br /><br />
+                            昨今の不動産市場は急速に変化していますが、私たちは常に最新のテクノロジーと、地域に根ざした人間味のあるサービスを融合させることで、最高のご提案を続けてまいります。
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- Company Profile Table -->
+            <section class="mt-12 px-4">
+                <h2 class="text-[22px] font-bold mb-6 flex items-center gap-2">
+                    <span class="w-1 h-6 bg-primary rounded-full"></span>
+                    会社概要
+                </h2>
+                <div
+                    class="overflow-hidden rounded-xl border border-[#f0f2f4] dark:border-slate-800 bg-white dark:bg-slate-900">
+                    <table class="w-full text-left border-collapse">
+                        <tbody>
+                            <tr class="border-b border-[#f0f2f4] dark:border-slate-800">
+                                <th
+                                    class="w-1/4 px-6 py-4 bg-background-light dark:bg-slate-800/50 text-sm font-bold text-[#111318] dark:text-white">
+                                    商号</th>
+                                <td class="px-6 py-4 text-sm">株式会社 ゆめハウス</td>
+                            </tr>
+                            <tr class="border-b border-[#f0f2f4] dark:border-slate-800">
+                                <th
+                                    class="w-1/4 px-6 py-4 bg-background-light dark:bg-slate-800/50 text-sm font-bold text-[#111318] dark:text-white">
+                                    設立</th>
+                                <td class="px-6 py-4 text-sm">2010年4月1日</td>
+                            </tr>
+                            <tr class="border-b border-[#f0f2f4] dark:border-slate-800">
+                                <th
+                                    class="w-1/4 px-6 py-4 bg-background-light dark:bg-slate-800/50 text-sm font-bold text-[#111318] dark:text-white">
+                                    資本金</th>
+                                <td class="px-6 py-4 text-sm">5,000万円</td>
+                            </tr>
+                            <tr class="border-b border-[#f0f2f4] dark:border-slate-800">
+                                <th
+                                    class="w-1/4 px-6 py-4 bg-background-light dark:bg-slate-800/50 text-sm font-bold text-[#111318] dark:text-white">
+                                    免許番号</th>
+                                <td class="px-6 py-4 text-sm">東京都知事（3）第98765号</td>
+                            </tr>
+                            <tr class="border-b border-[#f0f2f4] dark:border-slate-800">
+                                <th
+                                    class="w-1/4 px-6 py-4 bg-background-light dark:bg-slate-800/50 text-sm font-bold text-[#111318] dark:text-white">
+                                    加盟団体</th>
+                                <td class="px-6 py-4 text-sm">
+                                    (公社)東京都宅地建物取引業協会<br />
+                                    (公社)全国宅地建物取引業保証協会
+                                </td>
+                            </tr>
+                            <tr class="border-b border-[#f0f2f4] dark:border-slate-800">
+                                <th
+                                    class="w-1/4 px-6 py-4 bg-background-light dark:bg-slate-800/50 text-sm font-bold text-[#111318] dark:text-white">
+                                    所在地</th>
+                                <td class="px-6 py-4 text-sm">〒100-0005 東京都千代田区丸の内1丁目1-1 ゆめビル 5F</td>
+                            </tr>
+                            <tr>
+                                <th
+                                    class="w-1/4 px-6 py-4 bg-background-light dark:bg-slate-800/50 text-sm font-bold text-[#111318] dark:text-white">
+                                    事業内容</th>
+                                <td class="px-6 py-4 text-sm">
+                                    1. 不動産の売買・仲介・賃貸・管理<br />
+                                    2. リフォーム・リノベーションの企画・施工<br />
+                                    3. 資産活用コンサルティング
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- Map Section -->
+            <section class="mt-12 px-4 mb-16">
+                <h2 class="text-[22px] font-bold mb-6 flex items-center gap-2">
+                    <span class="w-1 h-6 bg-primary rounded-full"></span>
+                    アクセスマップ
+                </h2>
+                <div
+                    class="rounded-xl overflow-hidden border border-[#f0f2f4] dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900">
+                    <div class="w-full h-[400px] bg-slate-200 relative">
+                        <!-- Map placeholder -->
+                        <div class="absolute inset-0 bg-cover bg-center"
+                            data-alt="Google Maps showing Tokyo Marunouchi area" data-location="Tokyo, Japan"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVixlaap2V6MbufgEUu_TJH4WoNZpejYHL01qSfwf3jTDUVsj06gLCkGJTgLsUwitLOJLQnXD8Q60DhDw_HPU7D9DSxVOGzaCZbIDAaUWnPhoPm-I1rwmXAweySnKKU1UFbzwb73Ng8HVXcTy9i-nyTocc7_wF7yC0MuxxA-Fy4lN-aqTMgpPYRPklgTKXTBKXwTROIETaXfDASx1PK-L-hxLqYKxwZrOf8NIJUdf7ptgu9_MIOEMPduSzc9-iht16QPTCiopvfLxY");'>
+                        </div>
+                        <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                            <div class="bg-white dark:bg-slate-900 p-4 rounded-lg shadow-xl flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+                                <div>
+                                    <p class="font-bold text-sm">ゆめハウス 本社</p>
+                                    <p class="text-xs text-[#616f89] dark:text-slate-400">東京駅から徒歩3分</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary mt-0.5">train</span>
+                            <div>
+                                <p class="font-bold text-base mb-1">公共交通機関でお越しの方</p>
+                                <p class="text-[#616f89] dark:text-slate-400 text-sm leading-relaxed">
+                                    JR各線「東京駅」丸の内北口より徒歩3分<br />
+                                    東京メトロ丸ノ内線「大手町駅」B1出口直結
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-gray-800 py-24 px-6 lg:px-20">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-20 text-sm">
+            <div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+                <div class="flex items-center gap-3 text-primary group">
+                    <div class="size-10 text-primary transition-transform group-hover:rotate-6 duration-300">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor">
+                            </path>
+                        </svg>
+                    </div>
+                    <h2
+                        class="text-text-heading dark:text-white text-2xl font-display font-extrabold tracking-tight">
+                        ゆめハウス</h2>
+                </div>
+                <p class="text-text-main dark:text-gray-400 leading-relaxed text-base">
+                    〒107-0062<br />東京都港区南青山1-2-3<br />青山ビルディング 4F
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-12 h-12 rounded-full bg-secondary dark:bg-slate-800 flex items-center justify-center text-primary dark:text-gray-400 hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm"
+                        href="#">
+                        <span class="material-symbols-outlined text-xl">social_leaderboard</span>
+                    </a>
+                    <a class="w-12 h-12 rounded-full bg-secondary dark:bg-slate-800 flex items-center justify-center text-primary dark:text-gray-400 hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm"
+                        href="#">
+                        <span class="material-symbols-outlined text-xl">share</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-8">
+                <h4 class="font-display font-bold text-text-heading dark:text-white text-lg">メニュー</h4>
+                <nav class="flex flex-col gap-4 text-text-light dark:text-gray-400 font-medium">
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="../1._home/code.html">ホーム</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="../5._our_strengths/code.html">我々の強み</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="../2._property_search/code.html">物件検索</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="../4._guide_flow/code.html">案内の流れ</a>
+                </nav>
+            </div>
+
+            <div class="flex flex-col gap-8">
+                <h4 class="font-bold text-text-heading dark:text-white text-lg">サポート</h4>
+                <nav class="flex flex-col gap-3 text-gray-500 dark:text-gray-400">
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="#">よくあるご質問</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="../6._testimonials/code.html">お客様の声</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="#">プライバシーポリシー</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="../8._contact/code.html">お問い合わせ</a>
+                </nav>
+            </div>
+
+            <div class="flex flex-col gap-6">
+                <h4 class="font-bold text-text-heading dark:text-white text-lg">会社案内</h4>
+                <nav class="flex flex-col gap-3 text-gray-500 dark:text-gray-400">
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="../7._company_info/code.html">会社概要</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="#">採用情報</a>
+                    <a class="hover:text-primary transition-colors hover:translate-x-1 inline-block"
+                        href="#">ニュース</a>
+                </nav>
+            </div>
+        </div>
+        <div
+            class="max-w-[1280px] mx-auto mt-20 pt-8 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center flex-col md:flex-row gap-4">
+            <p class="text-xs text-gray-400">© 2024 YUME HOUSE Inc. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            const button = document.getElementById('theme-toggle');
+            if (!button) return;
+
+            const icon = button.querySelector('[data-theme-icon]');
+            const root = document.documentElement;
+
+            function readStoredTheme() {
+                try {
+                    return localStorage.getItem('theme');
+                } catch {
+                    return null;
+                }
+            }
+
+            function writeStoredTheme(theme) {
+                try {
+                    localStorage.setItem('theme', theme);
+                } catch {
+                    // ignore
+                }
+            }
+
+            function systemTheme() {
+                try {
+                    const prefersDark =
+                        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    return prefersDark ? 'dark' : 'light';
+                } catch {
+                    return 'light';
+                }
+            }
+
+            function currentTheme() {
+                return readStoredTheme() || (root.classList.contains('dark') ? 'dark' : systemTheme());
+            }
+
+            function applyTheme(theme) {
+                const isDark = theme === 'dark';
+                root.classList.toggle('dark', isDark);
+                root.classList.toggle('light', !isDark);
+                button.setAttribute('aria-pressed', String(isDark));
+                if (icon) icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            }
+
+            applyTheme(currentTheme());
+
+            button.addEventListener('click', () => {
+                const next = currentTheme() === 'dark' ? 'light' : 'dark';
+                writeStoredTheme(next);
+                applyTheme(next);
+            });
+        })();
+    </script>
+    </div>
+    </div>
+</body>
+
+</html>
