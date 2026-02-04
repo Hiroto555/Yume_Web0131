@@ -1,0 +1,623 @@
+<!doctype html>
+<html class="light" lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ヒーロー完成予想図（全案プレビュー）</title>
+    <meta name="robots" content="noindex,nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script src="../shared/tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,line-clamp"></script>
+    <link rel="stylesheet" href="../shared/base.css" />
+
+    <style>
+        :root {
+            --terass-primary: #2a3f54;
+            --terass-primary-dark: #213544;
+            --terass-ink: #171717;
+            --terass-ink-strong: #333333;
+            --terass-muted: #596873;
+            --terass-surface: #ffffff;
+            --terass-surface-muted: #e7ecec;
+        }
+
+        .mock-bokeh {
+            background:
+                radial-gradient(circle at 12% 18%, rgba(253, 241, 231, 0.9) 0%, rgba(253, 241, 231, 0) 55%),
+                radial-gradient(circle at 88% 16%, rgba(218, 221, 218, 0.85) 0%, rgba(218, 221, 218, 0) 55%),
+                radial-gradient(circle at 18% 86%, rgba(218, 225, 222, 0.8) 0%, rgba(218, 225, 222, 0) 55%),
+                linear-gradient(180deg, #f9faf4 0%, #ffffff 60%);
+        }
+
+        .pill {
+            height: 52px;
+            padding: 0 30px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .pill--primary {
+            background: var(--terass-primary);
+            color: #fff;
+        }
+
+        .pill--ghost {
+            border: 1px solid rgba(42, 63, 84, 0.35);
+            color: var(--terass-primary-dark);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--terass-ink-strong);
+            text-decoration: none;
+        }
+
+        .nav-item__en {
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 500;
+        }
+
+        .nav-item__jp {
+            font-size: 10px;
+            line-height: 10px;
+            font-weight: 500;
+            color: var(--terass-muted);
+        }
+
+        .fade-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            animation: heroFade 12s infinite;
+            opacity: 0;
+        }
+
+        .fade-slide:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .fade-slide:nth-child(2) {
+            animation-delay: 4s;
+        }
+
+        .fade-slide:nth-child(3) {
+            animation-delay: 8s;
+        }
+
+        @keyframes heroFade {
+            0% {
+                opacity: 0;
+            }
+
+            8% {
+                opacity: 1;
+            }
+
+            33% {
+                opacity: 1;
+            }
+
+            41% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-slide {
+                animation: none;
+            }
+
+            .fade-slide:nth-child(1) {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#0b1020] text-white">
+    <main class="max-w-[1200px] mx-auto px-4 py-10 space-y-14">
+        <header class="flex flex-col gap-2">
+            <h1 class="text-2xl font-display font-extrabold tracking-tight">ヒーロー完成予想図（全案）</h1>
+            <p class="text-sm text-white/70">※ 既存の画像（`image4/tile_*.png`）で“完成の雰囲気”を当てています。</p>
+            <p class="text-xs text-white/55">ファイル: <code class="break-all">stitch_yume_site1New/1._home/hero_variants_preview.html</code></p>
+        </header>
+
+        <!-- Variant 1 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案1：写真1枚＋左グラデ（TERASS王道）</h2>
+                <span class="text-xs text-white/60">固定1枚 / 最も失敗しにくい</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 bg-white text-[#111318] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]">
+                <div class="relative min-h-[560px]">
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <nav aria-label="グローバルナビゲーション" class="hidden lg:flex items-center gap-7 ml-auto">
+                                <a class="nav-item" href="#"><span class="nav-item__en">Home</span><span class="nav-item__jp">ホーム</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Search</span><span class="nav-item__jp">物件検索</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Guide</span><span class="nav-item__jp">案内の流れ</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Strength</span><span class="nav-item__jp">我々の強み</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Voice</span><span class="nav-item__jp">お客様の声</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">FAQ</span><span class="nav-item__jp">よくある質問</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Company</span><span class="nav-item__jp">会社情報</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Contact</span><span class="nav-item__jp">お問い合わせ</span></a>
+                            </nav>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full" style="background: var(--terass-surface-muted)"
+                                    aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20"
+                                    aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+	                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('../image4/hero_storefront_front_sunny_cropped2.jpg'); background-position: left center;"></div>
+	                    <div class="absolute inset-0 pointer-events-none bg-black/10"></div>
+	
+	                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 flex items-center min-h-[560px]">
+	                        <div class="max-w-[560px] rounded-2xl bg-white/85 backdrop-blur-sm p-7 md:p-9 border border-white/45 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)]">
+	                            <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Kumamoto</p>
+	                            <h3 class="mt-4 text-4xl md:text-5xl font-display font-extrabold leading-tight" style="color: var(--terass-ink)">
+	                                まずはお気軽にご相談ください。
+	                            </h3>
+                            <p class="mt-6 text-base leading-relaxed" style="color: rgba(23, 23, 23, 0.75)">
+                                不動産売却／購入／賃貸管理まで。最短1分でご相談できます。
+                            </p>
+                            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                                <a href="#" class="pill pill--primary">無料相談する</a>
+                                <a href="#" class="pill pill--ghost">会社情報・アクセス</a>
+                            </div>
+
+                            <div class="mt-8 grid grid-cols-1 gap-3">
+                                <div class="rounded-xl bg-white/75 border border-black/10 p-4">
+                                    <p class="text-[11px] font-bold" style="color: var(--terass-muted)">営業時間</p>
+                                    <p class="mt-1 text-sm font-bold" style="color: var(--terass-ink)">10:00〜19:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant 2 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案2：スプリット（左パネル＋右写真）</h2>
+                <span class="text-xs text-white/60">固定1枚 / 情報設計が強い</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 bg-[#f5f7f8] text-[#111318] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]">
+                <div class="relative min-h-[560px]">
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <nav aria-label="グローバルナビゲーション" class="hidden lg:flex items-center gap-7 ml-auto">
+                                <a class="nav-item" href="#"><span class="nav-item__en">Search</span><span class="nav-item__jp">物件検索</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Guide</span><span class="nav-item__jp">案内の流れ</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Strength</span><span class="nav-item__jp">我々の強み</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Contact</span><span class="nav-item__jp">お問い合わせ</span></a>
+                            </nav>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full" style="background: var(--terass-surface-muted)"
+                                    aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20"
+                                    aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 grid gap-6 lg:grid-cols-12 items-stretch min-h-[560px]">
+                        <div class="lg:col-span-6">
+                            <div class="h-full rounded-3xl bg-white/90 border border-black/10 shadow-card p-8 flex flex-col gap-4">
+                                <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Consultation</p>
+                                <h3 class="text-4xl font-display font-extrabold leading-tight" style="color: var(--terass-ink)">
+                                    “何から始める？”を一緒に整理します。
+                                </h3>
+                                <p class="text-base leading-relaxed" style="color: rgba(23, 23, 23, 0.7)">
+                                    ご希望をヒアリングし、購入/売却/賃貸管理の最適ルートをご提案。
+                                </p>
+                                <div class="mt-auto flex flex-col sm:flex-row gap-3">
+                                    <a href="#" class="pill pill--primary">無料相談する</a>
+                                    <a href="#" class="pill pill--ghost">物件を探す</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-6">
+                            <div class="h-[360px] lg:h-full rounded-3xl border border-black/10 overflow-hidden shadow-card">
+                                <div class="h-full w-full bg-cover bg-center" style="background-image: url('../image4/tile_voice.png');"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant 3 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案3：スライド（写真3枚・フェード）</h2>
+                <span class="text-xs text-white/60">内観/外観/相談（静かなフェード）</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 bg-white text-[#111318] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]">
+                <div class="relative min-h-[560px] overflow-hidden">
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <nav aria-label="グローバルナビゲーション" class="hidden lg:flex items-center gap-7 ml-auto">
+                                <a class="nav-item" href="#"><span class="nav-item__en">Search</span><span class="nav-item__jp">物件検索</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Voice</span><span class="nav-item__jp">お客様の声</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Company</span><span class="nav-item__jp">会社情報</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Contact</span><span class="nav-item__jp">お問い合わせ</span></a>
+                            </nav>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full" style="background: var(--terass-surface-muted)"
+                                    aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20"
+                                    aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="fade-slide" style="background-image: url('../image4/tile_search.png');"></div>
+                    <div class="fade-slide" style="background-image: url('../image4/tile_company.png');"></div>
+                    <div class="fade-slide" style="background-image: url('../image4/tile_voice.png');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/82 to-white/35"></div>
+
+                    <div class="absolute bottom-6 left-6 flex gap-2 z-10">
+                        <div class="h-2.5 w-2.5 rounded-full" style="background: var(--terass-primary)"></div>
+                        <div class="h-2.5 w-2.5 rounded-full bg-black/20"></div>
+                        <div class="h-2.5 w-2.5 rounded-full bg-black/20"></div>
+                    </div>
+
+                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 flex items-center min-h-[560px]">
+                        <div class="max-w-[560px]">
+                            <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Interior / City / Consultation</p>
+                            <h3 class="mt-4 text-4xl md:text-5xl font-display font-extrabold leading-tight" style="color: var(--terass-ink)">
+                                住まいの選択肢を、わかりやすく。
+                            </h3>
+                            <p class="mt-6 text-base leading-relaxed" style="color: rgba(23, 23, 23, 0.75)">
+                                3枚の写真で「何ができるか」を直感的に伝えます。
+                            </p>
+                            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                                <a href="#" class="pill pill--primary">無料相談する</a>
+                                <a href="#" class="pill pill--ghost">物件検索へ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant 4 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案4：2枚導線主役（購入/売却など）</h2>
+                <span class="text-xs text-white/60">写真は2枚でも強い</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]" style="background: var(--terass-surface-muted); color: var(--terass-ink)">
+                <div class="relative min-h-[560px]">
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <nav aria-label="グローバルナビゲーション" class="hidden lg:flex items-center gap-7 ml-auto">
+                                <a class="nav-item" href="#"><span class="nav-item__en">Buy</span><span class="nav-item__jp">購入</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Sell</span><span class="nav-item__jp">売却</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Manage</span><span class="nav-item__jp">賃貸管理</span></a>
+                                <a class="nav-item" href="#"><span class="nav-item__en">Contact</span><span class="nav-item__jp">相談</span></a>
+                            </nav>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full bg-white/70 border border-black/10" aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20" aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 min-h-[560px]">
+                        <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Quick Navigation</p>
+                        <h3 class="mt-4 text-4xl font-display font-extrabold" style="color: var(--terass-primary-dark)">目的から最短で進める。</h3>
+                        <p class="mt-4 text-base" style="color: rgba(33, 53, 68, 0.75)">購入・売却・賃貸管理。迷ったら無料相談から。</p>
+
+                        <div class="mt-10 grid gap-3 lg:grid-cols-2">
+                            <a href="#" class="group relative h-[240px] rounded-3xl overflow-hidden border border-black/10 shadow-card">
+                                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('../image4/tile_search.png');"></div>
+                                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/20"></div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300"></div>
+                                <div class="relative z-10 h-full p-8 flex flex-col">
+                                    <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Buy</p>
+                                    <h4 class="mt-2 text-2xl font-extrabold" style="color: var(--terass-ink)">物件を探す</h4>
+                                    <p class="mt-2 text-sm" style="color: rgba(23, 23, 23, 0.7)">条件検索から比較まで。</p>
+                                    <span class="mt-auto inline-flex items-center gap-1 text-sm font-bold" style="color: var(--terass-primary-dark)">
+                                        開く <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="#" class="group relative h-[240px] rounded-3xl overflow-hidden border border-black/10 shadow-card">
+                                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('../image4/tile_voice.png');"></div>
+                                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/20"></div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300"></div>
+                                <div class="relative z-10 h-full p-8 flex flex-col">
+                                    <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Sell</p>
+                                    <h4 class="mt-2 text-2xl font-extrabold" style="color: var(--terass-ink)">売却を相談する</h4>
+                                    <p class="mt-2 text-sm" style="color: rgba(23, 23, 23, 0.7)">相場の目安から査定まで。</p>
+                                    <span class="mt-auto inline-flex items-center gap-1 text-sm font-bold" style="color: var(--terass-primary-dark)">
+                                        開く <span class="material-symbols-outlined text-base">arrow_forward</span>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant 5 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案5：相談特化（背景ぼかし＋強いCTA）</h2>
+                <span class="text-xs text-white/60">CV重視 / 1枚でも成立</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 bg-white text-[#111318] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]">
+                <div class="relative min-h-[560px]">
+                    <div class="absolute inset-0 bg-cover bg-center blur-[2px] scale-[1.04]" style="background-image: url('../image4/tile_guide.png');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-white/55 to-white/92"></div>
+
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full" style="background: var(--terass-surface-muted)"
+                                    aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20"
+                                    aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 flex items-center min-h-[560px]">
+                        <div class="mx-auto max-w-[720px] rounded-3xl border border-black/10 bg-white/88 backdrop-blur-md shadow-floating p-8">
+                            <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Quick Consultation</p>
+                            <h3 class="mt-4 text-4xl font-display font-extrabold leading-tight" style="color: var(--terass-ink)">
+                                迷ったら、無料相談から。
+                            </h3>
+                            <p class="mt-4 text-base leading-relaxed" style="color: rgba(23, 23, 23, 0.7)">
+                                売却・購入・賃貸管理。状況を整理して最短ルートをご案内します。
+                            </p>
+                            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                                <a href="#" class="pill pill--primary w-full sm:w-auto">無料相談する</a>
+                                <a href="#" class="pill pill--ghost w-full sm:w-auto">電話する</a>
+                            </div>
+                            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div class="h-12 rounded-xl bg-[#e7ecec]/70"></div>
+                                <div class="h-12 rounded-xl bg-[#e7ecec]/70"></div>
+                                <div class="h-12 rounded-xl bg-[#e7ecec]/70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant 6 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案6：エリア訴求（地図/線画＋小写真）</h2>
+                <span class="text-xs text-white/60">画像少なめ路線と相性◎</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 text-[#111318] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]"
+                style="background:
+                    radial-gradient(circle at 30% 30%, rgba(42, 63, 84, 0.08) 0%, transparent 45%),
+	                    radial-gradient(circle at 70% 60%, rgba(2, 132, 199, 0.10) 0%, transparent 55%),
+                    repeating-linear-gradient(0deg, rgba(33,53,68,0.06) 0px, rgba(33,53,68,0.06) 1px, transparent 1px, transparent 22px),
+                    repeating-linear-gradient(90deg, rgba(33,53,68,0.06) 0px, rgba(33,53,68,0.06) 1px, transparent 1px, transparent 22px),
+                    #ffffff;">
+                <div class="relative min-h-[560px]">
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full" style="background: var(--terass-surface-muted)"
+                                    aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20"
+                                    aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 grid gap-8 lg:grid-cols-12 items-center min-h-[560px]">
+                        <div class="lg:col-span-7">
+                            <p class="inline-flex items-center gap-2 rounded-full bg-white/70 border border-black/10 px-4 py-2 text-xs font-bold"
+                                style="color: var(--terass-muted)">
+                                <span class="size-2 rounded-full" style="background: var(--terass-primary)"></span>
+                                Kumamoto
+                            </p>
+                            <h3 class="mt-6 text-4xl font-display font-extrabold leading-tight" style="color: var(--terass-primary-dark)">
+                                エリア密着で、近道を。
+                            </h3>
+                            <p class="mt-4 text-base" style="color: rgba(33, 53, 68, 0.75)">
+                                地域の相場・売却タイミング・住み替えまで、まとめて相談できます。
+                            </p>
+                            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                                <a href="#" class="pill pill--primary">無料相談する</a>
+                                <a href="#" class="pill pill--ghost">会社情報を見る</a>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <div class="rounded-3xl border border-black/10 bg-white/75 backdrop-blur-md p-4 shadow-card">
+                                <div class="h-[240px] rounded-2xl bg-cover bg-center" style="background-image: url('../image4/tile_company.png');"></div>
+                                <p class="mt-4 text-sm font-bold" style="color: var(--terass-ink)">店舗/アクセス</p>
+                                <p class="mt-1 text-xs" style="color: rgba(33, 53, 68, 0.75)">相談できる場所がある安心感を添える</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant 7 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案7：ミニマル＋サムネ帯（写真は3枚だけ）</h2>
+                <span class="text-xs text-white/60">文章主役＋写真最小</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 bg-white text-[#111318] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]">
+                <div class="relative min-h-[560px]">
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full" style="background: var(--terass-surface-muted)"
+                                    aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20"
+                                    aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 min-h-[560px]">
+                        <p class="text-xs font-bold tracking-widest uppercase" style="color: var(--terass-muted)">Minimal</p>
+                        <h3 class="mt-4 text-4xl font-display font-extrabold leading-tight" style="color: var(--terass-ink)">
+                            文章を主役に、写真は最小限。
+                        </h3>
+                        <p class="mt-4 text-base" style="color: rgba(23, 23, 23, 0.72)">
+                            ヒーロー下部のサムネ帯で不動産感を担保します。
+                        </p>
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="#" class="pill pill--primary">無料相談する</a>
+                            <a href="#" class="pill pill--ghost">物件を探す</a>
+                        </div>
+
+                        <div class="mt-10 grid gap-3 sm:grid-cols-3">
+                            <div class="h-[140px] rounded-2xl bg-cover bg-center border border-black/10" style="background-image: url('../image4/tile_search.png');"></div>
+                            <div class="h-[140px] rounded-2xl bg-cover bg-center border border-black/10" style="background-image: url('../image4/tile_strength.png');"></div>
+                            <div class="h-[140px] rounded-2xl bg-cover bg-center border border-black/10" style="background-image: url('../image4/tile_company.png');"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variant 8 -->
+        <section class="space-y-3">
+            <div class="flex items-baseline justify-between gap-4">
+                <h2 class="text-lg font-bold">案8：検索UI主役（いきなり探せる）</h2>
+                <span class="text-xs text-white/60">目的が即理解できる</span>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 bg-white text-[#111318] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.75)]">
+                <div class="relative min-h-[560px]">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('../image4/tile_search.png');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/92 via-white/82 to-white/45"></div>
+
+                    <header class="absolute top-0 inset-x-0 z-10 bg-white/70 backdrop-blur-md">
+                        <div class="max-w-[1200px] mx-auto px-6 pt-4 pb-3 flex items-center justify-between gap-6">
+                            <a href="#" aria-label="ゆめハウス" class="flex items-center gap-3">
+                                <span class="size-10 rounded-lg" style="background: var(--terass-primary)"></span>
+                                <span class="text-[20px] leading-none font-display font-extrabold tracking-tight"
+                                    style="color: var(--terass-ink-strong)">ゆめハウス</span>
+                            </a>
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="size-10 rounded-full" style="background: var(--terass-surface-muted)"
+                                    aria-label="テーマ切替（ダミー）"></button>
+                                <a href="#" class="hidden sm:inline-flex pill pill--primary">無料相談</a>
+                                <button type="button" class="lg:hidden size-10 rounded-full border border-black/20"
+                                    aria-label="メニュー（ダミー）"></button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="relative z-10 max-w-[1200px] mx-auto px-6 pt-28 pb-16 flex items-center min-h-[560px]">
+                        <div class="max-w-[760px]">
+                            <h3 class="text-4xl md:text-5xl font-display font-extrabold leading-tight" style="color: var(--terass-ink)">
+                                いきなり探せる。いきなり相談できる。
+                            </h3>
+                            <p class="mt-4 text-base" style="color: rgba(23, 23, 23, 0.72)">
+                                検索UIを主役にして、目的を最速で伝えます（見た目のみ）。
+                            </p>
+
+                            <div class="mt-8 rounded-3xl border border-black/10 bg-white/88 backdrop-blur-md shadow-floating p-6">
+                                <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                                    <div class="h-12 rounded-2xl bg-[#e7ecec]/70"></div>
+                                    <div class="h-12 rounded-2xl bg-[#e7ecec]/70"></div>
+                                    <div class="h-12 rounded-2xl bg-[#e7ecec]/70"></div>
+                                    <div class="h-12 rounded-2xl" style="background: var(--terass-primary)"></div>
+                                </div>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <div class="h-7 w-20 rounded-full bg-[#e7ecec]"></div>
+                                    <div class="h-7 w-24 rounded-full bg-[#e7ecec]"></div>
+                                    <div class="h-7 w-24 rounded-full bg-[#e7ecec]"></div>
+                                    <div class="h-7 w-28 rounded-full bg-[#e7ecec]"></div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                                <a href="#" class="pill pill--primary">検索する</a>
+                                <a href="#" class="pill pill--ghost">無料相談する</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

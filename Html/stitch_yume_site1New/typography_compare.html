@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ゆめハウス - タイポグラフィ比較</title>
+    <meta
+      name="description"
+      content="フォント・太さ・字間・スムージングなどの組み合わせを、現状 vs 候補で横並び比較するページです。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fb;
+        --panel: rgba(255, 255, 255, 0.86);
+        --panel-border: rgba(17, 19, 24, 0.12);
+        --ink: #111318;
+        --muted: rgba(17, 19, 24, 0.7);
+        --brand: #213544;
+        --shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans JP", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: radial-gradient(circle at 12% 10%, rgba(33, 53, 68, 0.08), transparent 40%),
+          radial-gradient(circle at 88% 18%, rgba(89, 104, 115, 0.08), transparent 44%), var(--bg);
+        color: var(--ink);
+      }
+
+      .wrap {
+        max-width: 1200px;
+        padding: 28px 18px 40px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        font-size: clamp(22px, 2.1vw, 30px);
+        line-height: 1.25;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      @media (max-width: 980px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .panel {
+        position: sticky;
+        top: 14px;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+        padding: 16px;
+      }
+
+      .panel h2 {
+        margin: 0 0 10px;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(17, 19, 24, 0.75);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .row label {
+        font-size: 12px;
+        color: rgba(17, 19, 24, 0.75);
+      }
+
+      .row input,
+      .row select,
+      .row textarea {
+        width: 100%;
+        border: 1px solid rgba(17, 19, 24, 0.16);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 9px 10px;
+        font-size: 13px;
+        color: var(--ink);
+      }
+
+      .row textarea {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        line-height: 1.5;
+        min-height: 132px;
+        resize: vertical;
+      }
+
+      .hint {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.6;
+        color: rgba(17, 19, 24, 0.66);
+      }
+
+      .btns {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+
+      button {
+        border: 1px solid rgba(17, 19, 24, 0.16);
+        background: white;
+        padding: 10px 12px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 13px;
+        color: rgba(17, 19, 24, 0.85);
+        transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        border-color: rgba(17, 19, 24, 0.24);
+        box-shadow: 0 12px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      button.primary {
+        background: linear-gradient(135deg, #2a3f54, #213544);
+        color: white;
+        border-color: rgba(33, 53, 68, 0.35);
+      }
+
+      .previews {
+        display: grid;
+        gap: 14px;
+      }
+
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      @media (max-width: 980px) {
+        .panel {
+          position: static;
+        }
+
+        .compare {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .preview-shell {
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(17, 19, 24, 0.12);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+      }
+
+      .preview-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        background: rgba(17, 19, 24, 0.03);
+        border-bottom: 1px solid rgba(17, 19, 24, 0.1);
+      }
+
+      .preview-head strong {
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(17, 19, 24, 0.75);
+      }
+
+      .chip {
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 19, 24, 0.14);
+        background: rgba(255, 255, 255, 0.7);
+        color: rgba(17, 19, 24, 0.75);
+        white-space: nowrap;
+      }
+
+      /* Preview typography (CSS variables are injected per preview) */
+      .preview {
+        padding: 16px 16px 20px;
+        background: var(--pv-bg, #ffffff);
+        color: var(--pv-ink, #111318);
+        font-family: var(--pv-font, "Noto Sans JP", sans-serif);
+        font-weight: var(--pv-weight, 400);
+        font-size: var(--pv-size, 16px);
+        line-height: var(--pv-line, 1.8);
+        letter-spacing: var(--pv-tracking, 0);
+        font-feature-settings: var(--pv-features, normal);
+        -webkit-font-smoothing: var(--pv-smoothing, auto);
+        text-rendering: var(--pv-rendering, auto);
+      }
+
+      .preview a {
+        color: var(--pv-link, #0b3f7d);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .pv-hero {
+        border-radius: 16px;
+        border: 1px solid rgba(17, 19, 24, 0.12);
+        background: radial-gradient(circle at 18% 24%, rgba(33, 53, 68, 0.08), transparent 46%),
+          radial-gradient(circle at 82% 70%, rgba(89, 104, 115, 0.1), transparent 48%), rgba(255, 255, 255, 0.75);
+        padding: 14px 14px 16px;
+        margin-bottom: 14px;
+      }
+
+      .pv-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .pv-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .pv-logo {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #2a3f54, #213544);
+        box-shadow: 0 14px 24px rgba(33, 53, 68, 0.18);
+      }
+
+      .pv-menu {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        color: var(--pv-muted, rgba(17, 19, 24, 0.72));
+        font-size: 0.92em;
+      }
+
+      .pv-menu span {
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 19, 24, 0.12);
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .pv-title {
+        font-size: clamp(22px, 2.1vw, 32px);
+        line-height: 1.22;
+        letter-spacing: -0.02em;
+        margin: 10px 0 6px;
+        font-weight: var(--pv-h1-weight, 800);
+      }
+
+      .pv-lead {
+        margin: 0 0 12px;
+        color: var(--pv-muted, rgba(17, 19, 24, 0.72));
+      }
+
+      .pv-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .pv-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 44px;
+        padding: 0 16px;
+        border-radius: 999px;
+        font-weight: 700;
+        border: 1px solid rgba(17, 19, 24, 0.12);
+        background: rgba(255, 255, 255, 0.85);
+        color: var(--pv-ink, #111318);
+        text-decoration: none;
+      }
+
+      .pv-btn.primary {
+        background: linear-gradient(135deg, #2a3f54, #213544);
+        border-color: rgba(33, 53, 68, 0.25);
+        color: white;
+      }
+
+      .pv-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      @media (max-width: 520px) {
+        .pv-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .pv-card {
+        border-radius: 16px;
+        border: 1px solid rgba(17, 19, 24, 0.12);
+        background: rgba(255, 255, 255, 0.8);
+        padding: 14px;
+      }
+
+      .pv-card h3 {
+        margin: 0 0 6px;
+        font-size: 1.05em;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        font-weight: var(--pv-h3-weight, 800);
+      }
+
+      .pv-meta {
+        margin: 0;
+        font-size: 0.92em;
+        color: var(--pv-muted, rgba(17, 19, 24, 0.72));
+      }
+
+      .pv-list {
+        margin: 12px 0 0;
+        padding: 0 0 0 18px;
+        color: var(--pv-muted, rgba(17, 19, 24, 0.78));
+      }
+
+      .pv-list li {
+        margin: 6px 0;
+      }
+
+      .pv-section-title {
+        margin: 16px 0 8px;
+        font-size: 0.95em;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(17, 19, 24, 0.68);
+      }
+
+      .pv-paragraph {
+        margin: 0 0 10px;
+      }
+
+      .pv-small {
+        font-size: 0.9em;
+        color: var(--pv-muted, rgba(17, 19, 24, 0.68));
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="title">
+          <h1>タイポグラフィ比較（現状 vs 候補）</h1>
+          <span class="chip">stitch_yume_site1New / 共有設定の見直し用</span>
+        </div>
+        <p class="subtitle">
+          文字が「弱々しく見える」原因になりやすい <b>字間</b> / <b>font-smoothing</b> / <b>本文の太さ</b> / <b>本文色</b> を横並びで比較します。
+          左は現状（<code>shared/base.css</code>相当）、右は候補です。
+        </p>
+      </header>
+
+      <div class="grid">
+        <aside class="panel">
+          <h2>候補の調整</h2>
+
+          <div class="row">
+            <label for="font">本文フォント</label>
+            <select id="font">
+              <option value="Noto Sans JP, Plus Jakarta Sans, sans-serif">Noto Sans JP（現状）</option>
+              <option value="Plus Jakarta Sans, Noto Sans JP, sans-serif">Plus Jakarta Sans 優先（ラテン強め）</option>
+              <option value="Noto Serif JP, serif">Noto Serif JP（セリフ）</option>
+              <option value='system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif'>
+                OS標準（system-ui）
+              </option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="weight">本文の太さ（font-weight）</label>
+            <select id="weight">
+              <option value="400">400（現状想定）</option>
+              <option value="500" selected>500（おすすめ）</option>
+              <option value="600">600</option>
+              <option value="700">700</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="size">本文サイズ（px）</label>
+            <select id="size">
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16" selected>16（おすすめ）</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="line">行間（line-height）</label>
+            <select id="line">
+              <option value="1.6">1.6</option>
+              <option value="1.7">1.7</option>
+              <option value="1.8" selected>1.8（現状寄り）</option>
+              <option value="1.9">1.9</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="tracking">字間（letter-spacing）</label>
+            <select id="tracking">
+              <option value="0.02em">0.02em（現状）</option>
+              <option value="0.01em">0.01em</option>
+              <option value="0" selected>0（おすすめ）</option>
+              <option value="-0.01em">-0.01em</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="features">フォント機能（font-feature-settings）</label>
+            <select id="features">
+              <option value="normal">normal</option>
+              <option value="&quot;palt&quot;" selected>"palt"（現状）</option>
+              <option value="&quot;pkna&quot;">"pkna"</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="smoothing">font-smoothing（macで差が出やすい）</label>
+            <select id="smoothing">
+              <option value="auto" selected>auto（おすすめ）</option>
+              <option value="antialiased">antialiased（現状）</option>
+              <option value="subpixel-antialiased">subpixel-antialiased</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="rendering">text-rendering</label>
+            <select id="rendering">
+              <option value="auto" selected>auto</option>
+              <option value="optimizeLegibility">optimizeLegibility</option>
+              <option value="geometricPrecision">geometricPrecision</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="ink">本文色（濃さ）</label>
+            <select id="ink">
+              <option value="#111318" selected>#111318（強め）</option>
+              <option value="#171717">#171717</option>
+              <option value="#333333">#333333（現状寄り）</option>
+              <option value="#596873">#596873（弱め）</option>
+            </select>
+          </div>
+
+          <p class="hint">
+            右の設定をいじって「これだ」という見た目に寄せた後、下のCSSをベースに <code>shared/base.css</code> の <code>body</code> を総入れ替えする想定です。
+          </p>
+
+          <div class="btns">
+            <button class="primary" id="apply">右へ反映</button>
+            <button id="recommended">おすすめに戻す</button>
+            <button id="copy">CSSをコピー</button>
+          </div>
+
+          <div class="row" style="margin-top: 12px">
+            <label for="cssOut">貼り替え用CSS（候補）</label>
+            <textarea id="cssOut" readonly></textarea>
+          </div>
+        </aside>
+
+        <main class="previews">
+          <div class="compare">
+            <section class="preview-shell">
+              <div class="preview-head">
+                <strong>Current</strong>
+                <span class="chip" id="chipCurrent"></span>
+              </div>
+              <div class="preview" id="previewCurrent"></div>
+            </section>
+
+            <section class="preview-shell">
+              <div class="preview-head">
+                <strong>Candidate</strong>
+                <span class="chip" id="chipCandidate"></span>
+              </div>
+              <div class="preview" id="previewCandidate"></div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <template id="sample">
+      <div class="pv-hero">
+        <div class="pv-nav">
+          <div class="pv-brand">
+            <span class="pv-logo" aria-hidden="true"></span>
+            <span>ゆめハウス</span>
+          </div>
+          <div class="pv-menu" aria-label="メニュー例">
+            <span>物件検索</span>
+            <span>会社案内</span>
+            <span>お問い合わせ</span>
+          </div>
+        </div>
+
+        <h2 class="pv-title">夢をかなえる、理想の住まい。<span style="font-family: 'Plus Jakarta Sans', sans-serif">YUME HOUSE</span></h2>
+        <p class="pv-lead">
+          文字の「強さ」は <b>太さ</b> / <b>字間</b> / <b>スムージング</b> / <b>本文色</b> の掛け算で決まります。
+          <a href="#">リンク例</a> もここで見え方を確認します。
+        </p>
+
+        <div class="pv-actions">
+          <a class="pv-btn primary" href="#">LINEで相談する</a>
+          <a class="pv-btn" href="#">資料請求</a>
+        </div>
+      </div>
+
+      <div class="pv-cards">
+        <div class="pv-card">
+          <h3>おすすめ物件</h3>
+          <p class="pv-meta">徒歩8分 / 3LDK / 2,980万円</p>
+          <ul class="pv-list">
+            <li>日当たり良好、南向き</li>
+            <li>収納たっぷり、家事動線◎</li>
+            <li>築浅、駐車2台可</li>
+          </ul>
+        </div>
+        <div class="pv-card">
+          <h3>はじめての方へ</h3>
+          <p class="pv-paragraph">
+            「弱々しい」場合、まず <b>本文を500</b> にして <b>letter-spacingを0</b> にすると、一気に安定することが多いです（特に日本語）。
+          </p>
+          <p class="pv-small">小さい文字（補足・注釈）の見え方も重要です。</p>
+        </div>
+      </div>
+
+      <div class="pv-section-title">本文サンプル</div>
+      <p class="pv-paragraph">
+        本文は読みやすさ重視。淡い色（例：<code>rgba(17,19,24,0.7)</code>）を使う時は、<b>太さ</b>や<b>サイズ</b>とセットで調整しないと薄く見えます。
+        英数字（123 / ABC）と日本語の混在も確認ポイントです。
+      </p>
+      <p class="pv-small">注釈：この行は「小さい＋薄い」ので、弱く見えやすい代表例。</p>
+    </template>
+
+    <script>
+      const sampleTemplate = document.getElementById("sample");
+
+      const current = {
+        font: "Noto Sans JP, Plus Jakarta Sans, sans-serif",
+        weight: "400",
+        size: "16",
+        line: "1.8",
+        tracking: "0.02em",
+        features: '"palt"',
+        smoothing: "antialiased",
+        rendering: "auto",
+        ink: "#333333",
+      };
+
+      const recommended = {
+        font: "Noto Sans JP, Plus Jakarta Sans, sans-serif",
+        weight: "500",
+        size: "16",
+        line: "1.8",
+        tracking: "0",
+        features: '"palt"',
+        smoothing: "auto",
+        rendering: "auto",
+        ink: "#111318",
+      };
+
+      const state = { ...recommended };
+
+      function mountSample(target) {
+        target.innerHTML = "";
+        target.appendChild(sampleTemplate.content.cloneNode(true));
+      }
+
+      function applySettings(target, settings) {
+        target.style.setProperty("--pv-font", settings.font);
+        target.style.setProperty("--pv-weight", settings.weight);
+        target.style.setProperty("--pv-size", `${settings.size}px`);
+        target.style.setProperty("--pv-line", settings.line);
+        target.style.setProperty("--pv-tracking", settings.tracking);
+        target.style.setProperty("--pv-features", settings.features || "normal");
+        target.style.setProperty("--pv-smoothing", settings.smoothing);
+        target.style.setProperty("--pv-rendering", settings.rendering);
+        target.style.setProperty("--pv-ink", settings.ink);
+        target.style.setProperty("--pv-muted", "rgba(17, 19, 24, 0.72)");
+        target.style.setProperty("--pv-link", "#0b3f7d");
+        target.style.setProperty("--pv-h1-weight", "800");
+        target.style.setProperty("--pv-h3-weight", "800");
+      }
+
+      function toChip(settings) {
+        return `${settings.weight}/${settings.size}px ls:${settings.tracking} smooth:${settings.smoothing}`;
+      }
+
+      function buildCssSnippet(settings) {
+        const lines = [];
+        lines.push("body {");
+        lines.push(`  font-family: ${settings.font};`);
+        lines.push(`  font-weight: ${settings.weight};`);
+        lines.push(`  font-size: ${settings.size}px;`);
+        lines.push(`  line-height: ${settings.line};`);
+        lines.push(`  letter-spacing: ${settings.tracking};`);
+        lines.push(`  font-feature-settings: ${settings.features || "normal"};`);
+        lines.push(`  -webkit-font-smoothing: ${settings.smoothing};`);
+        lines.push(`  text-rendering: ${settings.rendering};`);
+        lines.push(`  color: ${settings.ink};`);
+        lines.push("}");
+        return lines.join("\n");
+      }
+
+      function syncFormFromState() {
+        document.getElementById("font").value = state.font;
+        document.getElementById("weight").value = state.weight;
+        document.getElementById("size").value = state.size;
+        document.getElementById("line").value = state.line;
+        document.getElementById("tracking").value = state.tracking;
+        document.getElementById("features").value = state.features;
+        document.getElementById("smoothing").value = state.smoothing;
+        document.getElementById("rendering").value = state.rendering;
+        document.getElementById("ink").value = state.ink;
+      }
+
+      function syncStateFromForm() {
+        state.font = document.getElementById("font").value;
+        state.weight = document.getElementById("weight").value;
+        state.size = document.getElementById("size").value;
+        state.line = document.getElementById("line").value;
+        state.tracking = document.getElementById("tracking").value;
+        state.features = document.getElementById("features").value;
+        state.smoothing = document.getElementById("smoothing").value;
+        state.rendering = document.getElementById("rendering").value;
+        state.ink = document.getElementById("ink").value;
+      }
+
+      function render() {
+        const previewCurrent = document.getElementById("previewCurrent");
+        const previewCandidate = document.getElementById("previewCandidate");
+
+        applySettings(previewCurrent, current);
+        applySettings(previewCandidate, state);
+
+        document.getElementById("chipCurrent").textContent = toChip(current);
+        document.getElementById("chipCandidate").textContent = toChip(state);
+
+        document.getElementById("cssOut").value = buildCssSnippet(state);
+      }
+
+      function wireEvents() {
+        const ids = ["font", "weight", "size", "line", "tracking", "features", "smoothing", "rendering", "ink"];
+        for (const id of ids) {
+          document.getElementById(id).addEventListener("change", () => {
+            syncStateFromForm();
+            render();
+          });
+        }
+
+        document.getElementById("apply").addEventListener("click", () => {
+          syncStateFromForm();
+          render();
+        });
+
+        document.getElementById("recommended").addEventListener("click", () => {
+          Object.assign(state, recommended);
+          syncFormFromState();
+          render();
+        });
+
+        document.getElementById("copy").addEventListener("click", async () => {
+          const text = document.getElementById("cssOut").value;
+          try {
+            await navigator.clipboard.writeText(text);
+            alert("CSSをコピーしました。");
+          } catch (e) {
+            alert("コピーに失敗しました。テキストエリアから手動でコピーしてください。");
+          }
+        });
+      }
+
+      mountSample(document.getElementById("previewCurrent"));
+      mountSample(document.getElementById("previewCandidate"));
+      syncFormFromState();
+      wireEvents();
+      render();
+    </script>
+  </body>
+</html>
+

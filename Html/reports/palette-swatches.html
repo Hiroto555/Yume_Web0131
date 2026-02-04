@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>2色パレット候補（MENU / CTA）</title>
+        <style>
+            :root {
+                --bg: #f6f7fb;
+                --card: #ffffff;
+                --ink: #0f172a;
+                --muted: #64748b;
+                --line: rgba(15, 23, 42, 0.12);
+                --shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+                --radius: 18px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                color: var(--ink);
+                background: radial-gradient(circle at 12% 8%, #eef2ff 0%, transparent 58%),
+                    radial-gradient(circle at 90% 2%, #ecfeff 0%, transparent 52%),
+                    radial-gradient(circle at 10% 90%, #fef3c7 0%, transparent 60%), var(--bg);
+            }
+
+            .wrap {
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 40px 18px 64px;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 24px;
+                line-height: 1.3;
+                letter-spacing: -0.02em;
+            }
+
+            p {
+                margin: 10px 0 0;
+                color: var(--muted);
+                line-height: 1.7;
+            }
+
+            .grid {
+                margin-top: 22px;
+                display: grid;
+                gap: 14px;
+            }
+
+            .palette {
+                background: rgba(255, 255, 255, 0.88);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                padding: 16px 16px 14px;
+                backdrop-filter: blur(10px);
+            }
+
+            .palette h2 {
+                margin: 0 0 10px;
+                font-size: 16px;
+                letter-spacing: -0.01em;
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            @media (max-width: 720px) {
+                .row {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .swatch {
+                border-radius: 16px;
+                overflow: hidden;
+                border: 1px solid var(--line);
+                background: var(--card);
+            }
+
+            .swatch__color {
+                min-height: 110px;
+                padding: 16px 16px 14px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                color: #ffffff;
+                gap: 8px;
+                position: relative;
+            }
+
+            .swatch__badge {
+                position: absolute;
+                top: 14px;
+                left: 14px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 7px 10px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.14);
+                border: 1px solid rgba(255, 255, 255, 0.22);
+                font-weight: 800;
+                font-size: 12px;
+                letter-spacing: 0.06em;
+            }
+
+            .swatch__hex {
+                font-weight: 900;
+                font-size: 18px;
+                letter-spacing: 0.04em;
+            }
+
+            .swatch__hint {
+                font-weight: 700;
+                font-size: 12px;
+                opacity: 0.9;
+            }
+
+            .preview {
+                margin-top: 12px;
+                border-radius: 16px;
+                border: 1px solid var(--line);
+                overflow: hidden;
+                background: var(--card);
+            }
+
+            .preview__bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .preview__logo {
+                width: 160px;
+                height: 28px;
+                border-radius: 10px;
+                background: linear-gradient(135deg, rgba(148, 163, 184, 0.35), rgba(148, 163, 184, 0.15));
+                border: 1px solid rgba(148, 163, 184, 0.35);
+            }
+
+            .preview__nav {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .preview__pill {
+                padding: 9px 12px;
+                border-radius: 999px;
+                font-weight: 900;
+                font-size: 12px;
+                color: #ffffff;
+                letter-spacing: 0.06em;
+                box-shadow: 0 10px 16px rgba(15, 23, 42, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.22);
+            }
+
+            .preview__menu {
+                width: 46px;
+                height: 46px;
+                border-radius: 14px;
+                display: grid;
+                place-items: center;
+                font-weight: 900;
+                font-size: 18px;
+                color: #ffffff;
+                letter-spacing: 0.12em;
+                box-shadow: 0 14px 26px rgba(15, 23, 42, 0.16);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+            }
+
+            .note {
+                margin-top: 10px;
+                font-size: 12px;
+                color: var(--muted);
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>2色パレット候補（MENU / CTA）</h1>
+            <p>
+                メニューは「色面で存在感（MENU）」、CTAは「押したくなる強調（CTA）」に使う前提の2色候補です。各案の下に簡易ヘッダー
+                preview を付けています。
+            </p>
+
+            <div class="grid">
+                <section class="palette">
+                    <h2>推奨：ゆめハウスの雰囲気に寄せる（navy × sky blue）</h2>
+                    <div class="row">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #2b4d66">
+                                <span class="swatch__badge">MENU</span>
+                                <div class="swatch__hex">#2B4D66</div>
+                                <div class="swatch__hint">メニュー・見出しアクセント</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #0369a1">
+                                <span class="swatch__badge">CTA</span>
+                                <div class="swatch__hex">#0369A1</div>
+                                <div class="swatch__hint">来店予約・資料請求</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview__bar">
+                            <div class="preview__logo" aria-hidden="true"></div>
+                            <div class="preview__nav">
+                                <div class="preview__pill" style="background: #0369a1">資料請求</div>
+                                <div class="preview__menu" style="background: #2b4d66">≡</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="note">
+                        サイト全体が「空気感のある淡色＋青系」なので、暖色（オレンジ）よりも同系色でまとめると馴染みます。
+                    </p>
+                </section>
+
+                <section class="palette">
+                    <h2>案A：ロゴ寄せ・爽やか（navy × teal）</h2>
+                    <div class="row">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #2b4d66">
+                                <span class="swatch__badge">MENU</span>
+                                <div class="swatch__hex">#2B4D66</div>
+                                <div class="swatch__hint">メニュー・見出しアクセント</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #0e7490">
+                                <span class="swatch__badge">CTA</span>
+                                <div class="swatch__hex">#0E7490</div>
+                                <div class="swatch__hint">来店予約・資料請求</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview__bar">
+                            <div class="preview__logo" aria-hidden="true"></div>
+                            <div class="preview__nav">
+                                <div class="preview__pill" style="background: #0e7490">資料請求</div>
+                                <div class="preview__menu" style="background: #2b4d66">≡</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="palette">
+                    <h2>案B：信頼 × 温かみ（navy × burnt orange）</h2>
+                    <div class="row">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #2b4d66">
+                                <span class="swatch__badge">MENU</span>
+                                <div class="swatch__hex">#2B4D66</div>
+                                <div class="swatch__hint">メニュー・見出しアクセント</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #c2410c">
+                                <span class="swatch__badge">CTA</span>
+                                <div class="swatch__hex">#C2410C</div>
+                                <div class="swatch__hint">来店予約・資料請求</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview__bar">
+                            <div class="preview__logo" aria-hidden="true"></div>
+                            <div class="preview__nav">
+                                <div class="preview__pill" style="background: #c2410c">来店予約</div>
+                                <div class="preview__menu" style="background: #2b4d66">≡</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="palette">
+                    <h2>案C：元気・地域密着（green × burnt orange）</h2>
+                    <div class="row">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #15803d">
+                                <span class="swatch__badge">MENU</span>
+                                <div class="swatch__hex">#15803D</div>
+                                <div class="swatch__hint">メニュー・見出しアクセント</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #c2410c">
+                                <span class="swatch__badge">CTA</span>
+                                <div class="swatch__hex">#C2410C</div>
+                                <div class="swatch__hint">来店予約・資料請求</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview__bar">
+                            <div class="preview__logo" aria-hidden="true"></div>
+                            <div class="preview__nav">
+                                <div class="preview__pill" style="background: #c2410c">資料請求</div>
+                                <div class="preview__menu" style="background: #15803d">≡</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="palette">
+                    <h2>案D：上質・落ち着き（deep teal × deep orange）</h2>
+                    <div class="row">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #0b5d57">
+                                <span class="swatch__badge">MENU</span>
+                                <div class="swatch__hex">#0B5D57</div>
+                                <div class="swatch__hint">メニュー・見出しアクセント</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #b45309">
+                                <span class="swatch__badge">CTA</span>
+                                <div class="swatch__hex">#B45309</div>
+                                <div class="swatch__hint">来店予約・資料請求</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview__bar">
+                            <div class="preview__logo" aria-hidden="true"></div>
+                            <div class="preview__nav">
+                                <div class="preview__pill" style="background: #b45309">来店予約</div>
+                                <div class="preview__menu" style="background: #0b5d57">≡</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="palette">
+                    <h2>案E：都会的・クリーン（ink × royal blue）</h2>
+                    <div class="row">
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #0f172a">
+                                <span class="swatch__badge">MENU</span>
+                                <div class="swatch__hex">#0F172A</div>
+                                <div class="swatch__hint">メニュー・見出しアクセント</div>
+                            </div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch__color" style="background: #2563eb">
+                                <span class="swatch__badge">CTA</span>
+                                <div class="swatch__hex">#2563EB</div>
+                                <div class="swatch__hint">来店予約・資料請求</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="preview__bar">
+                            <div class="preview__logo" aria-hidden="true"></div>
+                            <div class="preview__nav">
+                                <div class="preview__pill" style="background: #2563eb">資料請求</div>
+                                <div class="preview__menu" style="background: #0f172a">≡</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <p class="note">
+                ※ LINEの緑は「LINEだけ」に限定して混ぜないのがおすすめです（3色目として乱用しない）。
+            </p>
+        </div>
+    </body>
+</html>
