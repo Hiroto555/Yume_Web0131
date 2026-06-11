@@ -481,3 +481,965 @@ nav a[aria-current="page"] > span.absolute.inset-0 {
         justify-content: space-between;
     }
 }
+
+/* Estate site refresh: shared, static, WordPress-portable components */
+.estate-page {
+    --estate-navy: #0d2f46;
+    --estate-blue: #0077a8;
+    --estate-blue-deep: #005f89;
+    --estate-sky: #eaf7fc;
+    --estate-sky-strong: #d7eef8;
+    --estate-blue-soft-line: #8fc8dc;
+    --estate-ink: #102d42;
+    --estate-muted: #4f6879;
+    --estate-line: #b9d1dd;
+    --estate-green: #52715f;
+    --estate-cta: #de782d;
+    --estate-cta-dark: #b85d20;
+    margin: 0;
+    background: #ffffff;
+    color: var(--estate-ink);
+    font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow-x: hidden;
+}
+
+.estate-page *,
+.estate-page *::before,
+.estate-page *::after {
+    box-sizing: border-box;
+}
+
+.estate-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+    height: 76px;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(216, 229, 236, 0.96);
+    backdrop-filter: blur(10px);
+}
+
+.estate-container {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.estate-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: 24px;
+}
+
+.estate-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--estate-navy);
+    font-weight: 900;
+}
+
+.estate-logo img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.estate-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.88rem;
+    font-weight: 800;
+}
+
+.estate-nav a {
+    color: var(--estate-ink);
+    text-decoration: none;
+}
+
+.estate-nav a[aria-current="page"],
+.estate-nav a:hover {
+    color: var(--estate-blue);
+}
+
+.estate-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.estate-mobile-nav {
+    display: none;
+}
+
+.estate-mobile-nav summary {
+    list-style: none;
+}
+
+.estate-mobile-nav summary::-webkit-details-marker {
+    display: none;
+}
+
+.estate-menu-button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--estate-line);
+    border-radius: 999px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.estate-mobile-nav__panel {
+    position: absolute;
+    top: 76px;
+    left: 20px;
+    right: 20px;
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid var(--estate-line);
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(15, 32, 51, 0.16);
+}
+
+.estate-mobile-nav__panel a {
+    padding: 11px 10px;
+    border-radius: 10px;
+    color: var(--estate-ink);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.estate-mobile-nav__panel a:hover {
+    background: var(--estate-sky);
+}
+
+.estate-main {
+    padding-top: 76px;
+}
+
+.estate-hero {
+    position: relative;
+    min-height: 510px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #c9dde8;
+}
+
+.estate-hero--compact {
+    min-height: 310px;
+}
+
+.estate-hero--compact .estate-hero__image {
+    opacity: 0.64;
+    filter: saturate(0.62) contrast(0.96) brightness(0.7);
+}
+
+.estate-hero__image {
+    position: absolute;
+    inset: 0;
+    background-image: var(--estate-hero-image);
+    background-size: cover;
+    background-position: var(--estate-hero-position, center);
+    filter: saturate(0.9) contrast(1) brightness(0.86);
+    transform: scale(1.01);
+}
+
+.estate-hero__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(6, 35, 54, 0.12), rgba(6, 35, 54, 0.28) 48%, rgba(6, 35, 54, 0.5)),
+        linear-gradient(90deg, rgba(5, 28, 43, 0.68), rgba(5, 28, 43, 0.34) 48%, rgba(5, 28, 43, 0.1));
+}
+
+.estate-hero__content {
+    position: relative;
+    z-index: 1;
+    width: min(680px, 100%);
+    padding-block: 66px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.estate-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+}
+
+.estate-kicker::before {
+    content: "";
+    width: 34px;
+    height: 2px;
+    background: currentColor;
+}
+
+.estate-kicker--section {
+    color: var(--estate-blue);
+    text-shadow: none;
+}
+
+.estate-hero h1 {
+    margin: 0;
+    font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: clamp(2.1rem, 1.5rem + 2vw, 3.35rem);
+    font-weight: 700;
+    line-height: 1.28;
+    letter-spacing: 0;
+    max-width: 12.5em;
+    overflow-wrap: normal;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.34);
+}
+
+.estate-title-line {
+    display: block;
+}
+
+.estate-hero__lead {
+    margin: 28px 0 0;
+    max-width: 660px;
+    text-align: left;
+    font-size: clamp(0.96rem, 0.92rem + 0.18vw, 1.06rem);
+    line-height: 1.95;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.estate-hero__lead span {
+    color: #ffffff;
+}
+
+.estate-hero__buttons,
+.estate-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.estate-hero__buttons {
+    justify-content: flex-start;
+}
+
+.estate-button,
+.estate-button-outline,
+.estate-button-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 6px;
+    font-weight: 900;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.estate-button {
+    background: var(--estate-cta);
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.estate-button:hover {
+    background: var(--estate-cta-dark);
+}
+
+.estate-button:hover,
+.estate-button-outline:hover,
+.estate-button-light:hover {
+    transform: none;
+}
+
+.estate-button-outline {
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    color: #ffffff;
+    background: rgba(15, 34, 48, 0.58);
+}
+
+.estate-button-light {
+    border: 1px solid var(--estate-line);
+    color: var(--estate-navy);
+    background: #ffffff;
+}
+
+.estate-hero__facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+    border-radius: 0;
+    border: 0;
+    border-top: 5px solid var(--estate-blue);
+    border-bottom: 1px solid var(--estate-blue-soft-line);
+    box-shadow: none;
+    background: #f2fbff;
+}
+
+.estate-hero__fact {
+    background: rgba(255, 255, 255, 0.42);
+    padding: 20px 24px 18px;
+    border-right: 1px solid var(--estate-line);
+}
+
+.estate-hero__fact:last-child {
+    border-right: 0;
+}
+
+.estate-hero__fact span {
+    display: block;
+    color: var(--estate-blue-deep);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.estate-hero__fact strong {
+    display: block;
+    margin-top: 4px;
+    color: var(--estate-ink);
+    font-size: 1rem;
+}
+
+.estate-section {
+    padding-block: clamp(64px, 7vw, 96px);
+}
+
+.estate-section--soft {
+    background: #eef8fd;
+}
+
+.estate-section--warm {
+    background: #e8f4fa;
+}
+
+.estate-section--dark {
+    background: var(--estate-navy);
+    color: #ffffff;
+}
+
+.estate-section--banner {
+    padding-block: 18px 12px;
+    background: #f5fbfe;
+    border-bottom: 1px solid var(--estate-blue-soft-line);
+}
+
+.estate-image-banners {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 36px;
+}
+
+.estate-image-banner {
+    position: relative;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    overflow: visible;
+    border: 0;
+    border-top: 1px solid var(--estate-blue-soft-line);
+    border-radius: 0;
+    background: transparent;
+    color: var(--estate-ink);
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.estate-image-banner--wide {
+    grid-column: 1 / -1;
+    min-height: auto;
+}
+
+.estate-image-banner::before {
+    content: none;
+}
+
+.estate-image-banner::after {
+    content: none;
+}
+
+.estate-image-banner:hover::before {
+    transform: none;
+}
+
+.estate-image-banner__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 8px;
+    width: min(620px, 74%);
+    padding: 26px 0;
+}
+
+.estate-image-banner__tag {
+    color: var(--estate-blue-deep);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.estate-image-banner strong {
+    font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: clamp(1.25rem, 1rem + 0.9vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+
+.estate-image-banner__content span:last-child {
+    color: var(--estate-muted);
+    font-weight: 700;
+    line-height: 1.75;
+}
+
+.estate-image-banner__arrow {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    margin-right: 26px;
+    border-radius: 999px;
+    border: 2px solid var(--estate-blue);
+    background: #f2fbff;
+    color: var(--estate-blue-deep);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.estate-section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 38px;
+}
+
+.estate-section-head h2 {
+    margin: 0;
+    font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: clamp(1.9rem, 1.38rem + 2vw, 3.15rem);
+    line-height: 1.18;
+    letter-spacing: 0;
+}
+
+.estate-section-head p {
+    margin: 14px 0 0;
+    max-width: 720px;
+    color: var(--estate-muted);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.estate-section--dark .estate-section-head p {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.estate-grid {
+    display: grid;
+    gap: 28px;
+}
+
+.estate-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.estate-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.estate-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.estate-card {
+    display: block;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    text-decoration: none;
+}
+
+.estate-card--text {
+    position: relative;
+    overflow: visible;
+    box-shadow: none;
+    border-top: 1px solid var(--estate-blue-soft-line);
+    background: transparent;
+}
+
+.estate-card--text:hover {
+    border-color: var(--estate-blue);
+}
+
+.estate-card--text::before {
+    content: none;
+}
+
+.estate-card--text .estate-card__body {
+    padding: 22px 0 4px;
+}
+
+.estate-card--media {
+    border-bottom: 1px solid var(--estate-blue-soft-line);
+    padding-bottom: 22px;
+}
+
+.estate-card__image {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.92) contrast(0.98);
+    border-radius: 0;
+}
+
+.estate-card__image[src*="portal_"] {
+    object-fit: contain;
+    padding: 24px;
+    background: #ffffff;
+}
+
+.estate-card__body {
+    padding: 20px 0 0;
+}
+
+.estate-card h3 {
+    margin: 0;
+    font-size: 1.18rem;
+    line-height: 1.45;
+    letter-spacing: 0;
+}
+
+.estate-card p {
+    margin: 10px 0 0;
+    color: var(--estate-muted);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.estate-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.estate-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid var(--estate-blue-soft-line);
+    background: transparent;
+    color: var(--estate-blue-deep);
+    padding: 5px 10px;
+    font-size: 0.76rem;
+    font-weight: 900;
+}
+
+.estate-price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.estate-price strong {
+    color: var(--estate-blue);
+    font-size: 1.55rem;
+    line-height: 1;
+}
+
+.estate-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.estate-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--estate-muted);
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.estate-list li::before {
+    content: "";
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
+    margin-top: 0.72em;
+    border-radius: 999px;
+    background: var(--estate-blue-deep);
+}
+
+.estate-steps {
+    display: grid;
+    gap: 16px;
+    counter-reset: step;
+}
+
+.estate-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: start;
+    padding: 22px 0;
+    border: 0;
+    border-top: 1px solid var(--estate-blue-soft-line);
+    border-radius: 0;
+    background: transparent;
+}
+
+.estate-step::before {
+    counter-increment: step;
+    content: counter(step, decimal-leading-zero);
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    border: 2px solid var(--estate-blue);
+    background: #f2fbff;
+    color: var(--estate-blue-deep);
+    font-weight: 900;
+}
+
+.estate-step h3 {
+    margin: 0;
+    font-size: 1.12rem;
+}
+
+.estate-step p {
+    margin: 6px 0 0;
+    color: var(--estate-muted);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.estate-band {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    gap: 34px;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+}
+
+.estate-band p {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.estate-band img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.estate-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border: 0;
+    border-top: 1px solid var(--estate-blue-soft-line);
+    border-radius: 0;
+    background: transparent;
+}
+
+.estate-table th,
+.estate-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--estate-blue-soft-line);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.estate-table th {
+    width: 28%;
+    background: var(--estate-sky);
+    color: var(--estate-navy);
+    font-weight: 900;
+}
+
+.estate-faq {
+    display: grid;
+    gap: 12px;
+}
+
+.estate-faq details {
+    border: 0;
+    border-top: 1px solid var(--estate-blue-soft-line);
+    border-radius: 0;
+    background: transparent;
+    padding: 18px 0;
+}
+
+.estate-faq details:last-child {
+    border-bottom: 1px solid var(--estate-blue-soft-line);
+}
+
+.estate-faq summary {
+    cursor: pointer;
+    font-weight: 900;
+    color: var(--estate-ink);
+}
+
+.estate-faq p {
+    margin: 12px 0 0;
+    color: var(--estate-muted);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.estate-form {
+    display: grid;
+    gap: 18px;
+}
+
+.estate-field {
+    display: grid;
+    gap: 7px;
+}
+
+.estate-field label {
+    font-weight: 900;
+}
+
+.estate-field input,
+.estate-field select,
+.estate-field textarea {
+    width: 100%;
+    border: 1px solid var(--estate-line);
+    border-radius: 2px;
+    padding: 13px 14px;
+    background: #ffffff;
+    font: inherit;
+}
+
+.estate-footer {
+    background: #09283d;
+    color: #ffffff;
+    padding-block: 48px;
+}
+
+.estate-footer a {
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+}
+
+.estate-footer__grid {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    gap: 28px;
+}
+
+.estate-footer h2,
+.estate-footer h3 {
+    margin: 0 0 12px;
+    letter-spacing: 0;
+}
+
+.estate-footer p {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+@media (max-width: 960px) {
+    .estate-nav,
+    .estate-header__actions {
+        display: none;
+    }
+
+    .estate-mobile-nav {
+        display: block;
+    }
+
+    .estate-hero {
+        min-height: 500px;
+    }
+
+    .estate-hero__image {
+        background-image: var(--estate-hero-image-mobile, var(--estate-hero-image));
+    }
+
+    .estate-hero__content {
+        width: min(100%, 680px);
+        text-align: center;
+    }
+
+    .estate-hero h1 {
+        margin-inline: auto;
+        font-size: clamp(2rem, 6.8vw, 3rem);
+        line-height: 1.22;
+        max-width: 11em;
+    }
+
+    .estate-hero__lead {
+        margin-inline: auto;
+        max-width: 34em;
+    }
+
+    .estate-hero__buttons {
+        justify-content: center;
+    }
+
+    .estate-hero__facts,
+    .estate-grid--2,
+    .estate-grid--3,
+    .estate-grid--4,
+    .estate-image-banners,
+    .estate-band,
+    .estate-footer__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .estate-section-head {
+        display: block;
+    }
+}
+
+@media (max-width: 640px) {
+    .estate-container {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .estate-header {
+        height: 68px;
+    }
+
+    .estate-mobile-nav__panel {
+        top: 68px;
+    }
+
+    .estate-main {
+        padding-top: 68px;
+    }
+
+    .estate-logo img {
+        height: 34px;
+        max-width: calc(100vw - 96px);
+    }
+
+    .estate-hero {
+        min-height: 500px;
+    }
+
+    .estate-hero__content {
+        padding-block: 52px;
+    }
+
+    .estate-hero h1 {
+        font-size: clamp(1.55rem, 6.6vw, 2rem);
+        max-width: 9.4em;
+    }
+
+    .estate-hero__lead {
+        max-width: 18em;
+        font-size: 0.94rem;
+        line-height: 1.9;
+    }
+
+    .estate-hero__buttons {
+        display: grid;
+        align-items: stretch;
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+        width: 100%;
+        max-width: 300px;
+        margin-inline: auto;
+    }
+
+    .estate-hero__buttons .estate-button,
+    .estate-hero__buttons .estate-button-outline {
+        min-width: 0;
+        width: 100%;
+        padding-inline: 16px;
+    }
+
+    .estate-section-head p,
+    .estate-card p,
+    .estate-step p,
+    .estate-faq p {
+        max-width: 20em;
+        font-size: 0.94rem;
+        line-height: 1.75;
+    }
+
+    .estate-hero__facts {
+        margin-top: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .estate-section {
+        padding-block: 64px;
+    }
+
+    .estate-section--banner {
+        padding-block: 28px;
+    }
+
+    .estate-image-banner,
+    .estate-image-banner--wide {
+        min-height: 150px;
+    }
+
+    .estate-image-banner::before {
+        background: #ffffff;
+    }
+
+    .estate-image-banner__content {
+        width: 82%;
+        padding: 22px 0;
+    }
+
+    .estate-image-banner__arrow {
+        width: 44px;
+        height: 44px;
+        flex-basis: 44px;
+        margin-right: 18px;
+    }
+
+    .estate-card__body {
+        padding: 18px 0 0;
+    }
+
+    .estate-band {
+        padding: 0;
+    }
+}
